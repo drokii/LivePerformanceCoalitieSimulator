@@ -30,7 +30,7 @@ namespace LivePerformanceCoalitieSimulator.Logic
 
         public void InsertResult(Result result)
         {
-            _resultcontext.InsertResults(result);
+            _resultcontext.InsertResult(result);
         }
 
         public MySqlDataAdapter FillTable(Result result)

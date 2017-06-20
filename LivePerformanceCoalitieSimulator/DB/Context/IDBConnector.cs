@@ -14,7 +14,6 @@ namespace LivePerformanceCoalitieSimulator.DB
         MySqlDataAdapter FillTable(string query);
         List<string>[] GetParties();
         List<string>[] GetCoalitions();
-        void InsertResult(Result result);
-        void InsertNewParty(string partyname);
+        void ExecuteQuery(string query);
     }
 }

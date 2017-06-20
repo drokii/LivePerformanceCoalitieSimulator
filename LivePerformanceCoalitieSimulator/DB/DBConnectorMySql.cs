@@ -72,7 +72,7 @@ namespace LivePerformanceCoalitieSimulator.DB
         }
         public MySqlDataAdapter FillTable(string query)
         {
-            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(query , _connection);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(query, _connection);
 
             return mySqlDataAdapter;
         }
@@ -87,7 +87,7 @@ namespace LivePerformanceCoalitieSimulator.DB
             List<string>[] listOfLists = new List<string>[3];
             listOfLists[0] = new List<string>();
             listOfLists[1] = new List<string>();
-            
+
 
 
             if (OpenConnection())
@@ -136,47 +136,13 @@ namespace LivePerformanceCoalitieSimulator.DB
         }
 
 
-        public void InsertResult(Result result)
+        public void ExecuteQuery(string query)
         {
-            foreach (var party in result.Participatingparties)
-            {
-                decimal seatcalc = (decimal)party.Votes / (decimal)result.TotalVotes;
-                decimal percentvotescalc = (decimal)party.Votes / (decimal)result.TotalVotes;
-                int seats = Convert.ToInt32(result.TotalSeats * seatcalc);
-                int percentvotes = Convert.ToInt32(percentvotescalc * 100);
-
-                string query = "INSERT INTO `result` (`Election`, `TotalSeats`, `Party`, `Votes`, `Seats`, `PercentVotes`, `DateElection`) VALUES("+"'"+  result.Name +"'" + ", " + "'" + Convert.ToString(result.TotalSeats) + "'" + "," + "'" +
-                                        party.Name + "'" + ", " + "'" + Convert.ToString(party.Votes) + "'" + "," + "'"
-                                        + Convert.ToString(seats) + "'" + ", " + "'"
-                                        + Convert.ToString(percentvotes) + "'" + "," + "'" + result.Date.ToString("yyyy-MM-dd") + "'" + ");";
-
-                //open connection
-                if (OpenConnection())
-                {
-                    //create command and assign the query and connection from the constructor
-                    MySqlCommand cmd = new MySqlCommand(query, _connection);
-                    
-                    //Execute command
-                    cmd.ExecuteNonQuery();
-
-                    //close connection
-                    CloseConnection();
-                }
-            }
-
-        }
-
-        public void InsertNewParty(string partyname)
-        {
-            string query = "INSERT INTO party(name) value(@partyname)";
-
-
             //open connection
             if (OpenConnection())
             {
                 //create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, _connection);
-                cmd.Parameters.AddWithValue("@partyname", partyname);
 
                 //Execute command
                 cmd.ExecuteNonQuery();
