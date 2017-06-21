@@ -137,6 +137,7 @@
             this.button5.TabIndex = 8;
             this.button5.Text = "Coalitie Aanmaken";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -181,6 +182,7 @@
             this.button8.TabIndex = 13;
             this.button8.Text = "Partij Aanpassen";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Refreshbtn
             // 

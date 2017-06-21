@@ -92,6 +92,7 @@
             // 
             // PartijnaamCb
             // 
+            this.PartijnaamCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PartijnaamCb.FormattingEnabled = true;
             this.PartijnaamCb.Location = new System.Drawing.Point(157, 171);
             this.PartijnaamCb.Name = "PartijnaamCb";

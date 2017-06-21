@@ -80,7 +80,7 @@ namespace LivePerformanceCoalitieSimulator.DB
 
         public List<string>[] GetParties()
         {
-            string query = "SELECT p.Name, pl.Name AS partyleader FROM Party P LEFT JOIN PartyLeader pl ON pl.Party = p.Name";
+            string query = "SELECT * FROM Party";
 
             //Create a list to store the result
 
@@ -104,8 +104,6 @@ namespace LivePerformanceCoalitieSimulator.DB
                     while (dataReader.Read())
                     {
                         listOfLists[0].Add(dataReader["Name"] + "");
-                        listOfLists[1].Add(dataReader["partyleader"] + "");
-
                     }
 
                     //close Data Reader

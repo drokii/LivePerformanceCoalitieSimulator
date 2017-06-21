@@ -19,5 +19,10 @@ namespace LivePerformanceCoalitieSimulator.Logic
         {
             _partycontext.InsertNewParty(partyname);
         }
+
+        public void UpdateExistingParty(string partyname, int partyvotes, string partyleader)
+        {
+            
+        }
     }
 }

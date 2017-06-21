@@ -60,5 +60,34 @@ namespace LivePerformanceCoalitieSimulator
         {
             Refresh();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (currentResult != null)
+            {
+                PartijAanpassen form = new PartijAanpassen();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Er is geen uitslag geladen. Maak een uitslaag eerst aan!");
+            }
+           
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            if (currentResult != null)
+            {
+                CoalitieAanmaken form = new CoalitieAanmaken();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Er is geen uitslag geladen. Maak een uitslaag eerst aan!");
+            }
+        }
+
     }
 }

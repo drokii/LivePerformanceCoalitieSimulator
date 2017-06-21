@@ -29,11 +29,15 @@ namespace LivePerformanceCoalitieSimulator.DB.Context
                 int percentvotes = Convert.ToInt32(percentvotescalc * 100);
 
                 string query =
-                    "INSERT INTO `result` (`Election`, `TotalSeats`, `Party`, `Votes`, `Seats`, `PercentVotes`, `DateElection`) VALUES(" +
-                    "'" + result.Name + "'" + ", " + "'" + Convert.ToString(result.TotalSeats) + "'" + "," + "'" +
-                    party.Name + "'" + ", " + "'" + Convert.ToString(party.Votes) + "'" + "," + "'"
-                    + Convert.ToString(seats) + "'" + ", " + "'"
-                    + Convert.ToString(percentvotes) + "'" + "," + "'" + result.Date.ToString("yyyy-MM-dd") + "'" +
+                    "INSERT INTO `result` (`Election`, `TotalSeats`, `Party`,'Leader', `Votes`, `Seats`, `PercentVotes`, `DateElection`) VALUES(" +
+                    "'" + result.Name + "'" + ", " + 
+                    "'" + Convert.ToString(result.TotalSeats) + "'" + "," + 
+                    "'" + party.Name + "'" + ", " +
+                    "'" + party.PartyLeader + "'" + ", " +
+                    "'" + Convert.ToString(party.Votes) + "'" + "," + 
+                    "'" + Convert.ToString(seats) + "'" + ", " +
+                    "'" + Convert.ToString(percentvotes) + "'" + "," + 
+                    "'" + result.Date.ToString("yyyy-MM-dd") +"'" +
                     ");";
                 _db.ExecuteQuery(query);
             }
