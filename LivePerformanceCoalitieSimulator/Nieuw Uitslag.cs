@@ -15,6 +15,7 @@ namespace LivePerformanceCoalitieSimulator
     public partial class Nieuw_Uitslag : Form
     {
         private ResultRepository _repo;
+
         private readonly List<Party> partyList;
         public Nieuw_Uitslag()
         {
@@ -57,11 +58,12 @@ namespace LivePerformanceCoalitieSimulator
                     LijsttrekkerTb.Text);
 
                 GeselecteerdePartijenListbox.Items.Add(newparty.Name);
+                
                 partyList.Add(newparty);
             }
             catch
             {
-                MessageBox.Show(@"Controleer of u alle velden correct heeft ingevuld.");
+                MessageBox.Show(@"Deze partij bestaat al in uw uitslag.");
             }
 
         }
@@ -72,6 +74,12 @@ namespace LivePerformanceCoalitieSimulator
                                        decimal.ToInt32(AantalZetelsNumPicker.Value), partyList);
             _repo.InsertResult(result);
             MainForm.currentResult = result;
+
+            foreach (var party in partyList)
+            {
+                party.CalculateSeats(MainForm.currentResult);
+
+            }
             Close();
 
         }

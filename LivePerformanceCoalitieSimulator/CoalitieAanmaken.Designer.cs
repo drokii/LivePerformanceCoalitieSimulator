@@ -35,7 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.premierlabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -43,7 +45,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(23, 40);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(106, 186);
+            this.listBox1.Size = new System.Drawing.Size(106, 160);
             this.listBox1.TabIndex = 0;
             // 
             // listBox2
@@ -51,7 +53,7 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(199, 40);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(106, 186);
+            this.listBox2.Size = new System.Drawing.Size(106, 160);
             this.listBox2.TabIndex = 1;
             // 
             // button1
@@ -62,6 +64,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Toevoegen";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -71,6 +74,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Klaar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -99,21 +103,39 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "De premier van deze coalitie is:";
             // 
-            // label4
+            // premierlabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(180, 248);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Premiernaam";
+            this.premierlabel.AutoSize = true;
+            this.premierlabel.Location = new System.Drawing.Point(180, 248);
+            this.premierlabel.Name = "premierlabel";
+            this.premierlabel.Size = new System.Drawing.Size(68, 13);
+            this.premierlabel.TabIndex = 7;
+            this.premierlabel.Text = "Premiernaam";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(137, 216);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(111, 20);
+            this.textBox1.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 216);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Naam Coalitie:";
             // 
             // CoalitieAanmaken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(329, 313);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.premierlabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -137,6 +159,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label premierlabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

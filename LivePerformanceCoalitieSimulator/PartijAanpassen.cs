@@ -16,7 +16,8 @@ namespace LivePerformanceCoalitieSimulator
     {
         private List<Party> currentPartylsit;
         PartyRepository _repo = new PartyRepository();
-        
+        private Party selectedparty;
+
         public PartijAanpassen()
         {
             InitializeComponent();
@@ -41,13 +42,14 @@ namespace LivePerformanceCoalitieSimulator
                     textBox1.Text = party.Name;
                     numericUpDown1.Value = party.Votes;
                     textBox3.Text = party.PartyLeader;
+                    selectedparty = party;
                 }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           _repo.
+           _repo.UpdateExistingParty(selectedparty.Name, selectedparty.Votes, selectedparty.PartyLeader );
         }
     }
 }

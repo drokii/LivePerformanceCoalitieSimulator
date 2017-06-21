@@ -71,6 +71,7 @@
     <Compile Include="DB\Context\IDBConnector.cs" />
     <Compile Include="DB\Context\PartyContext.cs" />
     <Compile Include="DB\Context\ResultContext.cs" />
+    <Compile Include="Logic\CoalitionRepository.cs" />
     <Compile Include="Logic\PartyRepository.cs" />
     <Compile Include="Logic\ResultRepository.cs" />
     <Compile Include="MainForm.cs">
@@ -92,7 +93,6 @@
       <DependentUpon>NieuwPartij.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\Coalition.cs" />
-    <Compile Include="Objects\PartyLeader.cs" />
     <Compile Include="Objects\Party.cs" />
     <Compile Include="Objects\Result.cs" />
     <Compile Include="PartijAanpassen.cs">

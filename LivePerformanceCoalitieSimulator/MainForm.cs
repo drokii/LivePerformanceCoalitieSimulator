@@ -15,19 +15,23 @@ namespace LivePerformanceCoalitieSimulator
     public partial class MainForm : Form
     {
         public static Result currentResult;
+        public static List<Coalition> Coalitions;
         private ResultRepository _repo;
+        private CoalitionRepository _coalitionrepo;
 
         public MainForm()
         {
             InitializeComponent();
             _repo = new ResultRepository();
+            _coalitionrepo = new CoalitionRepository();
+            Coalitions = new List<Coalition>();
         }
 
         private void NieuwUitslagbtn_Click(object sender, EventArgs e)
         {
             Nieuw_Uitslag form = new Nieuw_Uitslag();
             form.Show();
-            
+
         }
 
         private void UitslagAanpassenbtn_Click(object sender, EventArgs e)
@@ -49,11 +53,23 @@ namespace LivePerformanceCoalitieSimulator
                 DataSet ds = new DataSet();
                 _repo.FillTable(currentResult).Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+
             }
             catch
             {
                 MessageBox.Show("Er is geen actieve uitslag. Maak een nieuwe aan!");
             }
+            //try
+            //{
+            DataSet ds2 = new DataSet();
+            _coalitionrepo.FillTableWithCoalitions(currentResult).Fill(ds2);
+            dataGridView2.DataSource = ds2.Tables[0];
+            //}
+            //catch
+            //{
+            //    MessageBox.Show(
+            //        "Er zijn geen coalities gemaakt. Maak een coalitie om de statistieken te kunnen bekijken!");
+            //}
         }
 
         private void Refreshbtn_Click(object sender, EventArgs e)
@@ -72,12 +88,12 @@ namespace LivePerformanceCoalitieSimulator
             {
                 MessageBox.Show("Er is geen uitslag geladen. Maak een uitslaag eerst aan!");
             }
-           
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+
             if (currentResult != null)
             {
                 CoalitieAanmaken form = new CoalitieAanmaken();
@@ -89,5 +105,17 @@ namespace LivePerformanceCoalitieSimulator
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (currentResult != null)
+            {
+                CoalitieExporteren form = new CoalitieExporteren();
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Er is geen uitslag geladen. Maak een uitslaag eerst aan!");
+            }
+        }
     }
 }
