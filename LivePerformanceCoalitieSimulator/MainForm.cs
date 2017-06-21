@@ -25,6 +25,8 @@ namespace LivePerformanceCoalitieSimulator
             _repo = new ResultRepository();
             _coalitionrepo = new CoalitionRepository();
             Coalitions = new List<Coalition>();
+
+
         }
 
         private void NieuwUitslagbtn_Click(object sender, EventArgs e)
@@ -36,6 +38,11 @@ namespace LivePerformanceCoalitieSimulator
 
         private void UitslagAanpassenbtn_Click(object sender, EventArgs e)
         {
+            if (currentResult == null)
+            {
+                MessageBox.Show("Er is geen actieve uitslag. Maak eerst een uitslag!");
+                return;
+            }
             Nieuw_Uitslag form = new Nieuw_Uitslag(currentResult);
             form.Show();
         }
@@ -59,17 +66,17 @@ namespace LivePerformanceCoalitieSimulator
             {
                 MessageBox.Show("Er is geen actieve uitslag. Maak een nieuwe aan!");
             }
-            //try
-            //{
-            DataSet ds2 = new DataSet();
-            _coalitionrepo.FillTableWithCoalitions(currentResult).Fill(ds2);
-            dataGridView2.DataSource = ds2.Tables[0];
-            //}
-            //catch
-            //{
-            //    MessageBox.Show(
-            //        "Er zijn geen coalities gemaakt. Maak een coalitie om de statistieken te kunnen bekijken!");
-            //}
+            try
+            {
+                DataSet ds2 = new DataSet();
+                _coalitionrepo.FillTableWithCoalitions(currentResult).Fill(ds2);
+                dataGridView2.DataSource = ds2.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show(
+                    "Er zijn geen coalities gemaakt. Maak een coalitie om de statistieken te kunnen bekijken!");
+            }
         }
 
         private void Refreshbtn_Click(object sender, EventArgs e)
@@ -93,6 +100,11 @@ namespace LivePerformanceCoalitieSimulator
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (currentResult.Participatingparties.Count < 3)
+            {
+                MessageBox.Show("De geladen uitslag bevat te weinig partijen voor een coalitie.");
+                return;
+            }
 
             if (currentResult != null)
             {

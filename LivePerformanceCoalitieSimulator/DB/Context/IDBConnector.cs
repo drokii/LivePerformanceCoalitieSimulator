@@ -13,7 +13,6 @@ namespace LivePerformanceCoalitieSimulator.DB
     {
         MySqlDataAdapter FillTable(string query);
         List<string>[] GetParties();
-        List<string>[] GetCoalitions();
         void ExecuteQuery(string query);
     }
 }

@@ -128,11 +128,6 @@ namespace LivePerformanceCoalitieSimulator.DB
             }
         }
 
-        public List<string>[] GetCoalitions()
-        {
-            throw new NotImplementedException();
-        }
-
 
         public void ExecuteQuery(string query)
         {

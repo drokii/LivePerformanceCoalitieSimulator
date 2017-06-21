@@ -24,7 +24,7 @@ namespace LivePerformanceCoalitieSimulator.Objects
         {
             foreach (var party in Parties)
             {
-                if (participatingParties.Count <= 4)
+                if (participatingParties.Count < 4)
                 {
                     participatingParties.Add(party);
                     TotalSeats += party.Seats;
@@ -36,17 +36,17 @@ namespace LivePerformanceCoalitieSimulator.Objects
 
         public void DecidePremier()
         {
-            participatingParties.OrderByDescending(p => p.Votes);
+            participatingParties = participatingParties.OrderByDescending(p => p.Votes).ToList();
             Premier = participatingParties.ElementAt(0).PartyLeader;
         }
 
-        public void ExportCoalition(string path)
+        public void ExportCoalition()
         {
             
             try
             {
                 
-                using (StreamWriter streamWriter = new StreamWriter(path))
+                using (StreamWriter streamWriter = new StreamWriter(@"\"+Name+".txt"))
                 {
                     streamWriter.WriteLine("Coalitievoorstel");
                     streamWriter.WriteLine("Partij                    Zetels                   Lijsttrekker");

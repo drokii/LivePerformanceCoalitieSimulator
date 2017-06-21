@@ -41,9 +41,8 @@ namespace LivePerformanceCoalitieSimulator
                 if (party.Name == listBox1.SelectedItem.ToString())
                 {
                     listBox2.Items.Add(listBox1.SelectedItem);
-                    currentCoalition.TotalSeats += party.Seats;
                     partiesForCoalition.Add(party);
-                    partiesForCoalition.OrderByDescending(p => p.Votes);
+                    partiesForCoalition = partiesForCoalition.OrderByDescending(p => p.Votes).ToList();
                     premierlabel.Text = partiesForCoalition.ElementAt(0).PartyLeader;
                 } 
 

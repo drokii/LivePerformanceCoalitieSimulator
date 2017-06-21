@@ -39,9 +39,8 @@ namespace LivePerformanceCoalitieSimulator
             {
                 if (party.Name == comboBox1.SelectedItem.ToString())
                 {
-                    textBox1.Text = party.Name;
+                    textBox1.Text = party.PartyLeader;
                     numericUpDown1.Value = party.Votes;
-                    textBox3.Text = party.PartyLeader;
                     selectedparty = party;
                 }
             }
@@ -49,7 +48,21 @@ namespace LivePerformanceCoalitieSimulator
 
         private void button1_Click(object sender, EventArgs e)
         {
-           _repo.UpdateExistingParty(selectedparty.Name, selectedparty.Votes, selectedparty.PartyLeader );
+            try
+            {
+                _repo.UpdateExistingParty(selectedparty.Name, selectedparty.Votes, selectedparty.PartyLeader);
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("De verbinding met de database is gebroken. Bereik ons via klantenservice.");
+            }
+           
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

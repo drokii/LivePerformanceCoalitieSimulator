@@ -97,7 +97,7 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(458, 41);
+            this.panel1.Location = new System.Drawing.Point(462, 41);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(342, 393);
             this.panel1.TabIndex = 5;
@@ -131,7 +131,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(799, 440);
+            this.button5.Location = new System.Drawing.Point(1225, 440);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(110, 23);
             this.button5.TabIndex = 8;
@@ -141,7 +141,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(915, 440);
+            this.button6.Location = new System.Drawing.Point(1341, 440);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(110, 23);
             this.button6.TabIndex = 9;
@@ -152,14 +152,14 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(816, 41);
+            this.dataGridView2.Location = new System.Drawing.Point(820, 41);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(335, 393);
+            this.dataGridView2.Size = new System.Drawing.Size(758, 393);
             this.dataGridView2.TabIndex = 10;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1031, 440);
+            this.button7.Location = new System.Drawing.Point(1457, 440);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(121, 23);
             this.button7.TabIndex = 11;
@@ -199,7 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 492);
+            this.ClientSize = new System.Drawing.Size(1603, 492);
             this.Controls.Add(this.Refreshbtn);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label4);

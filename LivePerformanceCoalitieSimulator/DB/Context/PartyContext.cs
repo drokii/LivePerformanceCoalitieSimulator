@@ -43,6 +43,7 @@ class PartyContext
     {
         string query = "UPDATE result SET votes =" + "'" + Convert.ToString(partyvotes) + "'" + ", leader =" + "'" +
                        partyleader + "'" + "where Party =" + "'" + partyname + "';";
+        _dbc.ExecuteQuery(query);
     }
 
 }

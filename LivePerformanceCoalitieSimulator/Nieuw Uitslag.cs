@@ -42,14 +42,32 @@ namespace LivePerformanceCoalitieSimulator
             }
         }
         private void InvoerenBtn_Click(object sender, EventArgs e)
-        {
+        {  
+            if (LijsttrekkerTb.Text == "")
+                {
+                    MessageBox.Show("Vul de naam van de lijstrekker in.");
+                    return;
+                }
+            if (AantalStemmenNum.Value == 0)
+            {
+                MessageBox.Show("Vul de/het aantal stemmen voor deze partij in.");
+                return;
+            }
+
             try
             {
+
                 foreach (var party in partyList)
                 {
                     if (party.Name == PartijnaamCb.SelectedItem.ToString())
                     {
-                        partyList.RemoveAt(partyList.IndexOf(party));
+                        Party updatedparty = new Party(PartijnaamCb.Text, decimal.ToInt32(AantalStemmenNum.Value),
+                            LijsttrekkerTb.Text);
+                        party.Votes = updatedparty.Votes;
+                        party.PartyLeader = updatedparty.PartyLeader;
+                        MessageBox.Show(
+                            @"Deze partij bestaat al in uw uitslag. De hoeveelheid stemmen en de naam van de lijstrekker werden geupdatet.");
+
                     }
 
                 }
@@ -58,18 +76,28 @@ namespace LivePerformanceCoalitieSimulator
                     LijsttrekkerTb.Text);
 
                 GeselecteerdePartijenListbox.Items.Add(newparty.Name);
-                
+
                 partyList.Add(newparty);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show(@"Deze partij bestaat al in uw uitslag.");
+                MessageBox.Show(ex.Message);
             }
 
         }
 
         private void KlaarBtn_Click(object sender, EventArgs e)
         {
+            if (NaamVerkiezingTb.Text == "")
+            {
+                MessageBox.Show("Vul de naam van de verkiezing in.");
+                return;
+            }
+            if (AantalZetelsNumPicker.Value == 0)
+            {
+                MessageBox.Show("Vul de aantal zetels voor de verkiezing in.");
+                return;
+            }
             Result result = new Result(NaamVerkiezingTb.Text, DatumDtp.Value,
                                        decimal.ToInt32(AantalZetelsNumPicker.Value), partyList);
             _repo.InsertResult(result);

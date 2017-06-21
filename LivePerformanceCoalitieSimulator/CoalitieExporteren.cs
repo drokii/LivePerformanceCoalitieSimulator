@@ -28,15 +28,12 @@ namespace LivePerformanceCoalitieSimulator
                 if (coalition.Name == comboBox1.SelectedItem.ToString())
                 {
                     string filePath = null;
-                    FolderBrowserDialog fbd = new FolderBrowserDialog();   
+                    
 
-                    if (fbd.ShowDialog() == DialogResult.OK)
-                    {
-                        filePath = fbd.SelectedPath;
-                    }
+                    
                     try
                     {
-                        coalition.ExportCoalition(filePath);
+                        coalition.ExportCoalition();
                         Close();
                     }
                     catch

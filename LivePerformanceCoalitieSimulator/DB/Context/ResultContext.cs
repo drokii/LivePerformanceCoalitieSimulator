@@ -20,7 +20,7 @@ namespace LivePerformanceCoalitieSimulator.DB.Context
         }
 
         public void InsertResult(Result result)
-        {
+        { // delets from same election in case of update, otherwise inserts.
             foreach (var party in result.Participatingparties)
             {
                 decimal seatcalc = (decimal) party.Votes / (decimal) result.TotalVotes;
@@ -28,7 +28,7 @@ namespace LivePerformanceCoalitieSimulator.DB.Context
                 int seats = Convert.ToInt32(result.TotalSeats * seatcalc);
                 int percentvotes = Convert.ToInt32(percentvotescalc * 100);
                 party.Seats = seats;
-                string query =
+                string query ="DELETE FROM result WHERE Election ="+"'"+" result.Name"+"';" +
                     "INSERT INTO `result` (`Election`, `TotalSeats`, `Party`,`Leader`, `Votes`, `Seats`, `PercentVotes`, `DateElection`) VALUES(" +
                     "'" + result.Name + "'" + ", " + 
                     "'" + Convert.ToString(result.TotalSeats) + "'" + "," + 
